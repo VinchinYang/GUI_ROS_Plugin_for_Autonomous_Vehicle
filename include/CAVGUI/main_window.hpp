@@ -49,6 +49,9 @@ public Q_SLOTS:
 	void on_button_connect_clicked(bool check );
 	void on_checkbox_use_environment_stateChanged(int state);
 
+	//add by Weiqing
+	void on_rosbag_record_clicked();
+
     /******************************************
     ** Manual connections
     *******************************************/
