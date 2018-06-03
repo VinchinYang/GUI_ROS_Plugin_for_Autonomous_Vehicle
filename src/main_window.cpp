@@ -92,8 +92,7 @@ void MainWindow::on_button_connect_clicked(bool check ) {
 
 void MainWindow::on_rosbag_record_clicked(){
 	ui.rosbag_record->setEnabled(false);
-	system("gnome-terminal -x bash -c 'source ~/catkin_ws/devel/setup.bash;  
-             rosrun rviz rviz'&");
+	system("gnome-terminal -x bash -c 'rosrun rviz rviz'");
 	exit(0);
 }
 
