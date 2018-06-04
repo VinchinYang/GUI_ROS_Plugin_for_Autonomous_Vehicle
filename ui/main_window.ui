@@ -101,7 +101,7 @@
    <property name="minimumSize">
     <size>
      <width>369</width>
-     <height>420</height>
+     <height>451</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -258,9 +258,16 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="rosbag_record">
+         <widget class="QPushButton" name="button_rosbag">
           <property name="text">
            <string>Data Recording</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="button_rviz">
+          <property name="text">
+           <string>rviz</string>
           </property>
          </widget>
         </item>

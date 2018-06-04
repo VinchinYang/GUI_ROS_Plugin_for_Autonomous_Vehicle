@@ -13,6 +13,7 @@
 #include <QMessageBox>
 #include <iostream>
 #include "../include/CAVGUI/main_window.hpp"
+#include <QDebug>
 
 /*****************************************************************************
 ** Namespaces
@@ -43,6 +44,11 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 	**********************/
 	ui.view_logging->setModel(qnode.loggingModel());
     QObject::connect(&qnode, SIGNAL(loggingUpdated()), this, SLOT(updateLoggingView()));
+
+	/*********************
+	** Timeout() and rosbagRecordUpdate()
+	**********************/
+    QObject::connect(&pTimer, SIGNAL(timeout()), this, SLOT(rosbagRecordUpdate()));
 
     /*********************
     ** Auto Start
@@ -89,11 +95,23 @@ void MainWindow::on_button_connect_clicked(bool check ) {
 		}
 	}
 }
-
-void MainWindow::on_rosbag_record_clicked(){
-	ui.rosbag_record->setEnabled(false);
+/*
+Effects: rosbag recording, and the time interval is defined by userinput. 
+        According to Ding, command "rosbag record -a" will break if we run 
+		it for a long time. We rerun this command in every time interval 
+		to solve this problem.(add by wqyang@umich.edu)
+*/
+void MainWindow::on_button_rosbag_clicked(){
+	ui.button_rosbag->setEnabled(false);
+	pTimer.start(10000);
+}
+/*
+Effects: load rviz when button clicked.(add by wqyang@umich.edu)
+*/
+void MainWindow::on_button_rviz_clicked(){
+	ui.button_rviz->setEnabled(false);
+	// I assume that the host computer has sourced: source ~/catkin_ws/devel/setup.bash
 	system("gnome-terminal -x bash -c 'rosrun rviz rviz'");
-	exit(0);
 }
 
 
@@ -120,6 +138,20 @@ void MainWindow::on_checkbox_use_environment_stateChanged(int state) {
  */
 void MainWindow::updateLoggingView() {
         ui.view_logging->scrollToBottom();
+}
+
+/**
+(add by wqyang@umich.edu)
+*/
+void MainWindow::rosbagRecordUpdate() {
+	static bool flag = false;
+	// I assume that the host computer has sourced: source ~/catkin_ws/devel/setup.bash
+	//system("gnome-terminal -x bash -c 'rosrun rviz rviz'");
+	//system("gnome-terminal -x bash -c 'rosrun rviz rviz'");
+	if(flag == true) rosbagProcess.close();
+	flag = true;
+	//rosbagProcess.start("rosrun beginner_tutorials talker");
+	rosbagProcess.start("rosbag record -a");
 }
 
 /*****************************************************************************
