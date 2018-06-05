@@ -56,9 +56,10 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     if ( ui.checkbox_remember_settings->isChecked() ) {
         on_button_connect_clicked(true);
     }
+	
 }
 
-MainWindow::~MainWindow() {}
+MainWindow::~MainWindow() {close();}
 
 /*****************************************************************************
 ** Implementation [Slots]
@@ -102,14 +103,15 @@ Effects: rosbag recording, and the time interval is defined by userinput.
 		to solve this problem.(add by wqyang@umich.edu)
 */
 void MainWindow::on_button_rosbag_clicked(){
-	ui.button_rosbag->setEnabled(false);
-	pTimer.start(10000);
+	//ui.button_rosbag->setEnabled(false);
+	//pTimer.start(10000);
+	system("gnome-terminal -x bash -c 'rqt_bag'");
 }
 /*
 Effects: load rviz when button clicked.(add by wqyang@umich.edu)
 */
 void MainWindow::on_button_rviz_clicked(){
-	ui.button_rviz->setEnabled(false);
+	//ui.button_rviz->setEnabled(false);
 	// I assume that the host computer has sourced: source ~/catkin_ws/devel/setup.bash
 	system("gnome-terminal -x bash -c 'rosrun rviz rviz'");
 }
