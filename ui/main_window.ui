@@ -17,6 +17,22 @@
    <iconset resource="../resources/images.qrc">
     <normaloff>:/images/icon.png</normaloff>:/images/icon.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/* (Orange buttons) Operations Buttons Stylesheetrgb(255, 151, 57) */
+QPushButton {
+  background-color: rgb(255, 255, 255);
+  color: red; 
+  border: 1px solid red;
+}
+
+QPushButton:pressed {
+  background-color: rgb(255, 255, 255);
+  color: red; 
+  border: 1px solid red;
+}
+
+/* (Label at top) Label Stylesheet */</string>
+  </property>
   <property name="locale">
    <locale language="English" country="Australia"/>
   </property>
@@ -68,7 +84,7 @@
             </size>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1. Open this GUI(seeing this window, you must have run command):&lt;/p&gt;&lt;p&gt;&amp;quot;rosrun CAVGUI CAVGUI&amp;quot;&lt;/p&gt;&lt;p&gt;2. If you run this package in a computer which is not the host computer, you need to specific &amp;lt;Ros Master Url&amp;gt;, &amp;lt;Ros Ip&amp;gt;. Running in the host computer is suggested.&lt;/p&gt;&lt;p&gt;If you run this package in host computer, check &amp;lt;Use environment variables&amp;gt;. And you don't need to care about &amp;lt;Ros Master Url&amp;gt;, &amp;lt;Ros Ip&amp;gt;. These tags will be disabled automatically.&lt;/p&gt;&lt;p&gt;3. Click button &amp;lt;Record Data&amp;gt;, a seperate window will pump out which is used for recording data via rosbag record. And you can select which rostopic you want to record in the pumped window.&lt;/p&gt;&lt;p&gt;4. Click button &amp;lt;Open rviz&amp;gt;, rviz will open automatically for you. &lt;/p&gt;&lt;p&gt;5. More introduction see:&lt;a href=&quot;https://github.com/VinchinYang/GUI_ROS_Plugin_for_Autonomous_Vehicle.git&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;[github]&lt;/span&gt;&lt;/a&gt; or need additional help: wqyang@umich.edu&lt;/p&gt;&lt;p&gt;Have fun!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1. Open this GUI(seeing this window, you must have run command):&lt;/p&gt;&lt;p&gt;&amp;quot;rosrun CAVGUI CAVGUI&amp;quot;&lt;/p&gt;&lt;p&gt;2. If you run this package in a computer which is not the host computer, you need to specific &amp;lt;Ros Master Url&amp;gt;, &amp;lt;Ros Ip&amp;gt;. Running in the host computer is suggested.&lt;/p&gt;&lt;p&gt;If you run this package in host computer, check &amp;lt;Use environment variables&amp;gt;. And you don't need to care about &amp;lt;Ros Master Url&amp;gt;, &amp;lt;Ros Ip&amp;gt;. These tags will be disabled automatically.&lt;/p&gt;&lt;p&gt;3. Click button &amp;lt;Record Data&amp;gt;, a seperate window will pump out which is used for recording data via rosbag record. And you can select which rostopic you want to record in the pumped window.&lt;/p&gt;&lt;p&gt;4. Click button &amp;lt;Open rviz&amp;gt;, rviz will open automatically for you. &lt;/p&gt;&lt;p&gt;5. More introduction see:&lt;a href=&quot;https://github.com/VinchinYang/GUI_ROS_Plugin_for_Autonomous_Vehicle.git&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;[github]&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Have fun!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="textFormat">
             <enum>Qt::RichText</enum>
@@ -414,7 +430,7 @@ QPushButton:pressed {
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>590</y>
+          <y>610</y>
           <width>351</width>
           <height>25</height>
          </rect>
